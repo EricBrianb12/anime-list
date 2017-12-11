@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use Illuminate\Support\Facades\Input;
 use File;
+use PhpParser\Node\Expr\Empty_;
 use Symfony\Component\Console\Helper\Table;
 
 class PostController extends Controller
@@ -55,6 +56,9 @@ class PostController extends Controller
             $file->move('imagem-post',$name);
 
         }
+
+      
+
 
         $data = $request->all();
         $data['assistir'] = $data['parou']+1;
