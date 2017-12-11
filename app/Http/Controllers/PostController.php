@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Faker\Provider\Image;
 use Illuminate\Http\Request;
 use App\Post;
 use Illuminate\Support\Facades\Input;
 use File;
+use Symfony\Component\Console\Helper\Table;
 
 class PostController extends Controller
 {
@@ -22,6 +24,7 @@ class PostController extends Controller
 
 
 
+
     }
 
     /**
@@ -32,28 +35,6 @@ class PostController extends Controller
     public function create()
     {
 
-        if(Input::file('imagem'))
-        {
-            $imagem = Input::file('imagem');
-            $extensao = $imagem->getClientOriginalExtension();
-            if ($extensao != 'jpg' &&  $extensao !='png')
-            {
-                return back()->withErrors('erro', 'Erro: Este arquivo não é uma imagem');
-
-            }
-        }
-        $post = new Post;
-        $post->nome = Input::get('nome');
-        $post->parou = Input::get('parou');
-        $post->imagem = "";
-        $post->save();
-
-        if (Input::file('imagem'))
-        {
-            File::move($imagem, public_path().'/imagem-post/post-id_'.$post->id.'.'.$extensao);
-            $post->imagem = public_path().'/imagem-post/post-id_'.$post->id.'.'.$extensao;
-            $post->save();
-        }
         return view('posts.create');
     }
 
@@ -63,15 +44,25 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Post $post)
     {
 
-       Post::create($request->all());
-       return response()->redirectToRoute('posts.index');
+        if (Input::File('imagem'))
+        {
+
+            $file = Input::File('imagem');
+            $name = uniqid().'_'.$file->getClientOriginalName();
+            $file->move('imagem-post',$name);
+
+        }
+
+        $data = $request->all();
+        $data['assistir'] = $data['parou']+1;
+        $data['imagem'] = $name;
+        $post->create($data);
 
 
-
-
+        return response()->redirectToRoute('posts.index');
 
     }
 
@@ -107,12 +98,16 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
     {
-        $post = Post::findOrFail($id);
-        $post->update($request->all());
+        $data = $request->all();
+        $data['assistir'] = $data['parou']+1;
+        unset($data['_token']);
+        unset($data['_method']);
 
-        return response()->redirectToRoute('posts.show', $id);
+        \App\Post::where('id', '=', $id)->update($data);
+
+        return response()->redirectToRoute('posts.index');
     }
 
     /**

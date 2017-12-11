@@ -7,9 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Anime List</title>
     <link rel="stylesheet" href="/css/app.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 </head>
-<body style="background: #411c0e;">
-    <nav class="navbar navbar-default navbar-static-top">
+<body style="background-image: url('imagem-post/img3.jpg'); background-size: cover; background-color: #301018; ">
+    <nav class="navbar navbar-default navbar-static-top navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="co">

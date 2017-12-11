@@ -17,7 +17,7 @@
                     Olá, {{auth::user()->name}}, Seja bem vindo ao Anime-List.
                     Veja a sua lista de animes clicando no link abaixo:<br><br>
 
-                    <a class="btn btn-default" href="/posts">Lista</a>
+                    <a class="btn btn-default" href="/posts">Lista <i class="fa fa-list-ul"></i></a>
                 </div>
             </div>
         </div>

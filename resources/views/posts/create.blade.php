@@ -4,13 +4,7 @@
 
 
 
-    <form action="{{route('posts.store')}}"  method="post">
-
-        @if(session('erro'))
-            <div class="alert alert-danger">
-                {{session('erro')}}
-            </div>
-        @endif
+    <form action="{{route('posts.store')}}"  method="post" enctype="multipart/form-data">
 
         @include('posts.form')
     </form>

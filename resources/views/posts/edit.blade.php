@@ -4,7 +4,8 @@
 
     <form action="{{route('posts.update',$post->id)}}"  method="post">
         <input type="hidden" name="_method" value="PUT">
-        @include('posts.form')
+        @include('layouts.edit')
+
     </form>
 
 <a href="{{route('posts.show',$post->id)}}" class="btn btn-xs btn-default">Voltar</a>

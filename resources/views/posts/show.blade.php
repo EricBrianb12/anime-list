@@ -10,10 +10,14 @@
         </small>
     </p>
 
-    {!! $post->imagem !!}<br>
+    <table>
+        <td>
+            <img src="{!! asset('imagem-post/'.$post->imagem) !!}">
+        </td>
+    </table><br>
 
-    <a href="{{route('posts.index')}}" class="btn btn-xs btn-default">Voltar</a>
-    <a href="{{route('posts.edit', $post->id)}}" class="btn btn-xs btn-default">Editar</a>
+    <a href="{{route('posts.index')}}" class="btn btn-xs btn-default"><i class="fa fa-arrow-left "> Voltar</i></a>
+    <a href="{{route('posts.edit', $post->id)}}" class="btn btn-xs btn-default">Editar <i class="fa fa-pencil"></i></a>
     <form action="{{route('posts.destroy', $post->id)}}" class="form-horizontal" method="post" style="display: inline-block">
         {!! csrf_field() !!}
         <input type="hidden" name="_method" value="DELETE">

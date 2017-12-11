@@ -22,17 +22,12 @@
         <div class="col-10">
             <input name="assistir" class="form-control" type="number" value="{{$post->assistir ?? ''}}" id="assistir" disabled>
         </div><br>
-        <div class="container">
-            <label class="col-2 col-form-label" for="imagem" >Capa do anime</label>
-            <input  type="file" id="imagem" name="imagem" value="{{ $post->imagem ?? ''}}">
-
-        </div>
         <div class="form-group">
             <div class="col-sm-12 col-sm-offset-5"><br>
                 <button type="submit" value="Salvar" class="btn btn-primary text-center ">Salvar <i class="fa fa-floppy-o"></i></button>
             </div>
         </div>
-</div>
+    </div>
 
 
 

@@ -2,7 +2,7 @@
     @slot('title') Lista @endslot
     @slot('description') De Animes @endslot
     <div>
-        <a href="{{route('posts.create',1)}}" class="btn btn-primary">Novo Anime</a>
+      <a href="{{route('posts.create')}}" class="btn btn-primary">Novo Anime <i class="fa fa-plus"></i></a>
     </div><br>
 <table class="table table-bordered">
     <thead>
@@ -18,7 +18,7 @@
 
         @foreach($posts as $post)
             <tr>
-                <td>{{$post->imagem}}</td>
+                <td> <img style="width: 200px; height: 130px;" src="{!! asset('imagem-post/'.$post->imagem) !!}"> </td>
                 <td>{{$post->nome}}</td>
                 <td>{{$post->parou}}</td>
                 <td>{{$post->assistir}}</td>
