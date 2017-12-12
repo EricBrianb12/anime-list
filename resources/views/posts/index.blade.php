@@ -18,10 +18,8 @@
 
         @foreach($posts as $post)
             <tr>
-                @if(Empty($post->imagem))
-                    {!! asset('imagem-post/default.jpg') !!}
-                @endif
-                <td> <img style="width: 200px; height: 130px;" src="{!! asset('imagem-post/'.$post->imagem) !!}"> </td>
+
+                <td><img style="width: 200px; height: 130px;" src="{!! asset('imagem-post/'.$post->imagem)!!}"> </td>
                 <td>{{$post->nome}}</td>
                 <td>{{$post->parou}}</td>
                 <td>{{$post->assistir}}</td>
@@ -30,6 +28,7 @@
                 </td>
             </tr>
         @endforeach
+
 
     </tbody>
 </table>

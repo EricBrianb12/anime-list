@@ -6,13 +6,14 @@
 
     <p>
         <small>
-            criado em {{$post->created_at->format('d/m/Y H:i:s')}}
+            criado em {{$post->created_at->format('d/m/Y')}}
         </small>
     </p>
 
     <table>
+
         <td>
-            <img src="{!! asset('imagem-post/'.$post->imagem) !!}">
+            <img src="{!! asset('imagem-post/'.$post->imagem) !!}" style="widows: 250px; height: 300px;">
         </td>
     </table><br>
 

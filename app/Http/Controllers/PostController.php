@@ -54,16 +54,26 @@ class PostController extends Controller
             $file = Input::File('imagem');
             $name = uniqid().'_'.$file->getClientOriginalName();
             $file->move('imagem-post',$name);
-
         }
 
-      
-
+        if (empty($name))
+        {
+           $name = '/default.jpg';
+        }
 
         $data = $request->all();
         $data['assistir'] = $data['parou']+1;
         $data['imagem'] = $name;
         $post->create($data);
+
+
+
+
+
+      
+
+
+
 
 
         return response()->redirectToRoute('posts.index');
