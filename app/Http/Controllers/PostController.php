@@ -57,7 +57,12 @@ class PostController extends Controller
 
         }
 
-      
+        if(empty($name))
+        {
+            $name = '/default.jpg';
+        }
+
+
 
 
         $data = $request->all();
