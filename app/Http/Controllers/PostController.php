@@ -17,10 +17,16 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index( Post $post)
     {
+        if (isset($_GET['search']) && $_GET['search'] !==''){
+            $search = filter_var($_GET['search'], FILTER_SANITIZE_STRING);
+            $posts = $post->where('nome','like',"%$search%")->paginate();
+        }else{
 
-        $posts = Post::paginate(10);
+            $posts = $post->paginate(5);
+        }
+
         Return view('posts.index', compact('posts'));
 
 
@@ -47,7 +53,6 @@ class PostController extends Controller
      */
     public function store(Request $request, Post $post)
     {
-
         if (Input::File('imagem'))
         {
 

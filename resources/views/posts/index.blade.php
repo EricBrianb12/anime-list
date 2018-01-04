@@ -1,6 +1,20 @@
 @component('layouts.elements.body')
     @slot('title') Lista @endslot
     @slot('description') De Animes @endslot
+
+   <div class="row">
+       <form action="">
+            <div class="form-group col-md-3">
+                <input type="search" name="search" placeholder="Qual anime procura? ;)" class="form-control">
+            </div>
+           <div>
+               <button class="btn btn-primary">
+                    Pesquisar
+               </button>
+           </div>
+       </form>
+   </div>
+
     <div>
       <a href="{{route('posts.create')}}" class="btn btn-primary">Novo Anime <i class="fa fa-plus"></i></a>
     </div><br>
