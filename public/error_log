@@ -1,0 +1,2 @@
+[04-Jan-2018 05:31:25 America/Chicago] PHP Warning:  require(/home/brian/public_html/../vendor/autoload.php): failed to open stream: No such file or directory in /home/brian/public_html/index.php on line 24
+[04-Jan-2018 05:31:25 America/Chicago] PHP Fatal error:  require(): Failed opening required '/home/brian/public_html/../vendor/autoload.php' (include_path='.:/opt/php56/lib/php') in /home/brian/public_html/index.php on line 24

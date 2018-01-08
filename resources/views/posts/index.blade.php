@@ -32,7 +32,7 @@
 
         @foreach($posts as $post)
             <tr>
-                <td> <img style="width: 200px; height: 130px;" src="{!! asset('imagem-post/'.$post->imagem) !!}"> </td>
+                <td style="width:200px;"><img style="width: 200px; height: 130px;" src="{!! asset('imagem-post/'.$post->imagem)!!}"> </td>
                 <td>{{$post->nome}}</td>
                 <td>{{$post->parou}}</td>
                 <td>{{$post->assistir}}</td>
@@ -41,6 +41,7 @@
                 </td>
             </tr>
         @endforeach
+
 
     </tbody>
 </table>
